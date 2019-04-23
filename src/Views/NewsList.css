@@ -1,0 +1,45 @@
+.Base {
+  display: flex;
+  /* overflow: hidden; */
+  height: calc(100vh - 100px);
+  position: relative;
+  width: 100%;
+}
+/* .List {
+  flex-direction: column;
+  display: flex;
+  flex: 5;
+  background-color: lightblue;
+}
+.Menu {
+  flex: 1;
+}
+
+.Temp {
+  flex: 1; */
+/* } */
+.Top {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  height: 60px;
+  /* box-shadow: 1px 1px 5px lightgray; */
+}
+.Menu,
+.List,
+.Temp {
+  overflow: auto;
+  height: auto;
+}
+/*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
+.Menu {
+  width: 12.5rem;
+}
+
+.List {
+  flex: 1;
+}
+
+.Temp {
+  width: 12.5rem;
+}
