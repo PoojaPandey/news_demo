@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import "../Views/MenuComponent.css";
-import * as constant from "../Utility/Constant";
+import * as constant from '../Utility/Constant';
 
+/**
+ * Menu Class to hold news category.
+ */
 class MenuComponent extends Component {
   state = {
     menuList: [
@@ -14,16 +17,22 @@ class MenuComponent extends Component {
     ]
   };
 
-  newsTypeSelected = item => {
+  /**
+   * Method for selected news Type category.
+   */
+  newsTypeSelected = (item) => {
     this.props.selectNews(item);
   };
 
+  /**
+   * To render
+   */
   render() {
     return (
       <>
         <div>
-          <div style={{ marginLeft: "10%" }}>
-            {this.state.menuList.map(item => (
+          <div style={{ marginLeft: '10%' }}>
+            {this.state.menuList.map((item) => (
               <h4 onClick={() => this.newsTypeSelected(item)} key={item.title}>
                 {item}
               </h4>

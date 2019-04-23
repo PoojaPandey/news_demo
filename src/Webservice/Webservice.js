@@ -1,4 +1,7 @@
-
+/**
+ * Service to call news API.
+ * @param {*} props 
+ */
 function Webservice(props){
         fetch(this.props.url)
           .then(response => response.json())
