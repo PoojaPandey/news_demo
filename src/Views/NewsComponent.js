@@ -28,9 +28,9 @@ const SetupAuthorAndTime = props => (
       src={dotIcon}
       alt={"img"}
       style={{
-        width: "10px",
-        height: "7px",
-        marginTop: "28px",
+        width: "5px",
+        height: "3px",
+        marginTop: "30px",
         marginLeft: "5px",
         marginRight: "5px"
       }}
