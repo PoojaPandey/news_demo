@@ -3,8 +3,11 @@ import "./NewsComponent.css";
 import dotIcon from "../Resources/dot.png";
 // import propTypes from "prop-Types";
 
-const DateFormatted = props => 
-{
+/**
+ * Method to format the Date.
+ * @param {*} props
+ */
+const DateFormatted = props => {
   let date = new Date(props.date);
   return (
     <h6 style={{ color: "gray" }}>
@@ -36,6 +39,10 @@ const DateFormatted = props =>
 //   </h6>
 // );
 
+/**
+ * Method to setup Author and Time.
+ * @param {*} props
+ */
 const SetupAuthorAndTime = props => (
   <div className="JustFnfo" style={{ marginTop: "0px" }}>
     <h6 style={{ color: "gray" }}>{props.authorDetail.newsItem.source.name}</h6>
