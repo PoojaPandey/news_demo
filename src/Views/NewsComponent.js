@@ -1,10 +1,10 @@
 import React from "react";
 import "./NewsComponent.css";
 import dotIcon from "../Resources/dot.png";
-
 // import propTypes from "prop-Types";
 
-const DateFormatted = props => {
+const DateFormatted = props => 
+{
   let date = new Date(props.date);
   return (
     <h6 style={{ color: "gray" }}>
@@ -20,6 +20,21 @@ const DateFormatted = props => {
     </h6>
   );
 };
+
+// (
+//   // let date = new Date(props.date);
+//   <h6 style={{ color: "gray" }}>
+//     {/* Published At:{" "} */}
+//     {new Intl.DateTimeFormat("en-US", {
+//       year: "numeric",
+//       month: "2-digit",
+//       day: "2-digit",
+//       hour: "2-digit",
+//       minute: "2-digit",
+//       second: "2-digit"
+//     }).format(new Date(props.date))}
+//   </h6>
+// );
 
 const SetupAuthorAndTime = props => (
   <div className="JustFnfo" style={{ marginTop: "0px" }}>

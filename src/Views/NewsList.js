@@ -42,7 +42,7 @@ class NewsList extends Component {
         })
       )
       .catch(e => console.log(e));
-
+      
     // <WebService url={constant.NEWS_URL} setData={this.setData} gotError={this.gotError}></WebService>
   };
 
