@@ -1,89 +1,56 @@
 import React from "react";
-import "./NewsComponent.css";
-import dotIcon from "../Resources/dot.png";
-// import propTypes from "prop-Types";
+import SingleNewsComponent from "../Views/SingleNewsComponent.js";
+import "../Views/NewsList.css";
+import * as constant from "../Utility/Constant";
+import PropTypes from "prop-types";
 
-/**
- * Method to format the Date.
- * @param {*} props
- */
-const DateFormatted = props => {
-  let date = new Date(props.date);
+function SetupListView(prop) {
   return (
-    <h6 style={{ color: "gray" }}>
-      {/* Published At:{" "} */}
-      {new Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-      }).format(date)}
-    </h6>
+    <div className="Top" style={{ marginTop: "20px" }}>
+      <img
+        style={{
+          marginLeft: "30px",
+          marginTop: "10px"
+        }}
+        src={
+          prop.heading === constant.TOP_STORY
+            ? "../Resources/" + prop.heading + "-Icon.png"
+            : require("../Resources/" + prop.heading + "-Icon.png")
+        }
+        hidden={prop.heading === constant.TOP_STORY ? true : false}
+        alt={"icon"}
+        className="Icon"
+      />
+      <h2
+        style={{
+          marginLeft: prop.heading === constant.TOP_STORY ? "40px" : "10px"
+        }}
+      >
+        {prop.heading}
+      </h2>
+    </div>
   );
-};
-
-// (
-//   // let date = new Date(props.date);
-//   <h6 style={{ color: "gray" }}>
-//     {/* Published At:{" "} */}
-//     {new Intl.DateTimeFormat("en-US", {
-//       year: "numeric",
-//       month: "2-digit",
-//       day: "2-digit",
-//       hour: "2-digit",
-//       minute: "2-digit",
-//       second: "2-digit"
-//     }).format(new Date(props.date))}
-//   </h6>
-// );
+}
 
 /**
- * Method to setup Author and Time.
+ * This creating the news list with props
  * @param {*} props
  */
-const SetupAuthorAndTime = props => (
-  <div className="JustFnfo" style={{ marginTop: "0px" }}>
-    <h6 style={{ color: "gray" }}>{props.authorDetail.newsItem.source.name}</h6>
-    <img
-      src={dotIcon}
-      alt={"img"}
-      style={{
-        width: "5px",
-        height: "3px",
-        marginTop: "30px",
-        marginLeft: "5px",
-        marginRight: "5px"
-      }}
-    />
-    <DateFormatted date={props.authorDetail.newsItem.publishedAt} />
-  </div>
-);
-
-/* Code for creating the news list with data*/
-const NewsComponent = props => (
-  <div className="MainContent">
-    <div className="ImageContainerStyle">
-      <img
-        src={props.newsItem.urlToImage}
-        alt={"img"}
-        className="ImageStyling"
-      />
+function NewsComponent(props) {
+  const newsList = props.newsArray;
+  // const heading = props.heading;
+  return (
+    <div>
+      {/* {SetupListView({ heading })} */}
+      <SetupListView heading={props.heading} />
+      {newsList.map(item => (
+        <SingleNewsComponent key={item.title} newsItem={item} />
+      ))}
     </div>
-    <div className="ContentStyle">
-      <h2 style={{ marginBottom: "1px" }}>{props.newsItem.title}</h2>
-      <SetupAuthorAndTime authorDetail={props} />
-      {/* <h6 style={{ marginTop: "0px" }}>{}</h6> */}
-      <p>{props.newsItem.description}</p>
-      {/* <p>{props.newsItem.content}</p> */}
-
-      <div className="JustFnfo">
-        <h6 style={{ width: "50%" }}>Author:{props.newsItem.author}</h6>{" "}
-        <DateFormatted date={props.newsItem.publishedAt} />
-      </div>
-    </div>
-  </div>
-);
+  );
+}
+NewsComponent.propTypes = {
+  newsArray: PropTypes.array.isRequired
+};
 
 export default NewsComponent;
