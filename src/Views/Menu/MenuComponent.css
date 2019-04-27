@@ -12,3 +12,12 @@
   border: 1px solid;
   border-color: lightgrey;
 }
+
+.menuStyle {
+  font-size: 15pt;
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(247, 64, 73);
+}

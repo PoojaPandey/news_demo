@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NewsList from "./Views/NewsList";
+import NewsList from "./Views/NewsList/NewsList";
 
 class App extends Component {
   render() {
