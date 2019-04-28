@@ -47,6 +47,7 @@ class MenuComponent extends Component {
         {this.state.menuList.map((item) => {
           return <MenuItem item={item} onClick={() => this.newsTypeSelected(item)} key={item} />;
         })}
+       
       </div>
     );
   }
@@ -59,9 +60,14 @@ class MenuItem extends React.Component {
 
   render() {
     return (
-      <h4
+      <li
+        className={
+          this.state.hover
+            ? 'TitleHeaderOnHover list-group-item list-group-item-action d-flex justify-content-between align-items-center'
+            : 'TitleHeaderOfHover list-group-item list-group-item-action d-flex justify-content-between align-items-center'
+        }
         onClick={this.props.onClick}
-        className={this.state.hover ? 'TitleHeaderOnHover' : 'TitleHeaderOfHover'}
+        //className={this.state.hover ? 'TitleHeaderOnHover' : 'TitleHeaderOfHover'}
         // style={this.state.hover ? { color: "red" } : { color: "black" }}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false })}
@@ -69,7 +75,7 @@ class MenuItem extends React.Component {
         // onMouseLeave={this.onMouseOut.bind(this)}
       >
         {this.props.item}
-      </h4>
+      </li>
     );
   }
 }

@@ -41,7 +41,7 @@ function SingleNewsComponent(props) {
   const newsItem = props.newsItem;
   return (
     <div className="MainContent">
-      <table class="table table-striped">
+      <table className="table table-sm">
         <tr>
           <td>
             <img src={newsItem.urlToImage} alt={'img'} className="ImageStyling" />

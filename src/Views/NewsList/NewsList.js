@@ -7,6 +7,7 @@ import TempratureComponent from '../TempratureComponent';
 import icon from '../../Resources/TGPIcon.png';
 import WebService from '../../Webservice/Webservice';
 import CreateApi from '../../Utility/Constant';
+import Loading from '../../Utility/Loading';
 
 /**
  * News List Class
@@ -21,7 +22,8 @@ class NewsList extends Component {
     this.state = {
       news: [],
       isFetching: false,
-      heading: constant.TOP_STORY
+      heading: constant.TOP_STORY,
+      loading: false
     };
   }
 
@@ -47,11 +49,13 @@ class NewsList extends Component {
    * Method to fetch the news.
    */
   fetchNews = (url) => {
+    this.loading = true;
     WebService({
       url: url,
       setData: this.setData,
       gotError: this.gotError
     });
+    this.loading = false;
   };
 
   /**
@@ -92,22 +96,38 @@ class NewsList extends Component {
    * Render the UI
    */
   render() {
-    return (
-      <div>
-        {this.TopView()}
-        <div className="Base">
-          <div className="Menu">
-            <MenuComponent selectNews={this.selectedNewsType} />
-          </div>
-          <div className="List">
-            <NewsComponent newsArray={this.state.news} heading={this.state.heading} />
-          </div>
-          <div className="Temp">
-            <TempratureComponent />
+    if (this.loading === false) {
+      return (
+        <div>
+          {this.TopView()}
+          <div className="Base">
+            <div className="Menu">
+              <MenuComponent selectNews={this.selectedNewsType} />
+            </div>
+            <div className="List">
+              <NewsComponent newsArray={this.state.news} heading={this.state.heading} />
+            </div>
+            <div className="Temp">
+              <TempratureComponent />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>
+          {this.TopView()}
+          <div className="Base">
+            {/* <div style={{ alignContent: 'center' }}> */}
+     
+            {/* </div> */}
+            <div className="Menu">
+              <MenuComponent selectNews={this.selectedNewsType} />
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
