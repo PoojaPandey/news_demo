@@ -11,6 +11,7 @@
     "react-geolocated": "^2.4.1",
     "react-google-location": "^1.2.2",
     "react-loading": "^2.0.3",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {

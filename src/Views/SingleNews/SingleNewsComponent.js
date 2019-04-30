@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import '../SingleNews/SingleNewsComponent.css';
+import React, { useState } from "react";
+import "../SingleNews/SingleNewsComponent.css";
 
 /**
  * Method to format the Date.
  * @param {*} props
  */
-const DateFormatted = (props) => {
+const DateFormatted = props => {
   let date = new Date(props.date);
   return (
     <label className="GrayColor">
       {/* Published At:{" "} */}
-      {new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+      {new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
       }).format(date)}
     </label>
   );
@@ -28,8 +28,10 @@ const DateFormatted = (props) => {
  */
 function SetupAuthorAndTime(props) {
   return (
-    <div className="JustFnfo" style={{ margin: '0px' }}>
-      <label className="GrayColor">Author: {props.authorDetail.newsItem.source.name} @ </label>
+    <div className="JustFnfo" style={{ margin: "0px" }}>
+      <label className="GrayColor">
+        Author: {props.authorDetail.newsItem.source.name} @{" "}
+      </label>
       {/* <img src={dotIcon} alt={'img'} className="AuthorAndTimeStyle" /> */}
       <DateFormatted date={props.authorDetail.newsItem.publishedAt} />
     </div>
@@ -41,13 +43,21 @@ function SingleNewsComponent(props) {
   const newsItem = props.newsItem;
   return (
     <div className="MainContent">
-      <table className="table table-sm">
+      <table class="table table-borderless">
         <tr>
           <td>
-            <img src={newsItem.urlToImage} alt={'img'} className="ImageStyling" />
+            <img
+              src={newsItem.urlToImage}
+              alt={"img"}
+              className="ImageStyling"
+            />
           </td>
           <td>
-            <a href={newsItem.url} className={hover ? 'TitleHeaderOnHover' : 'TitleHeaderOfHover'}>
+            <a
+              href={newsItem.url}
+              className={hover ? "TitleHeaderOnHover" : "TitleHeaderOfHover"}
+              target="_blank"
+            >
               <label
                 className="TitleStyle"
                 onMouseEnter={() => setHover(true)}

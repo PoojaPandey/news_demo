@@ -5,25 +5,13 @@
   position: relative;
   width: 100%;
 }
-/* .List {
-  flex-direction: column;
-  display: flex;
-  flex: 5;
-  background-color: lightblue;
-}
-.Menu {
-  flex: 1;
-}
 
-.Temp {
-  flex: 1; */
-/* } */
 .Top {
   display: flex;
   position: relative;
   z-index: 10;
   height: 60px;
-  /* box-shadow: 1px 1px 5px lightgray; */
+  margin-top: 0px;
 }
 .Menu,
 .List,
@@ -42,4 +30,28 @@
 
 .Temp {
   width: 12.5rem;
+}
+.LogoTitle {
+  color: orange;
+  margin-top: 12pt;
+  font-weight: bold;
+
+  /* margin: 50px; */
+}
+
+.NewsTitle {
+  color: rgb(3, 51, 122);
+  margin-top: 12pt;
+  font-weight: bold;
+}
+
+.Icon {
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  margin: 5px;
+}
+
+.BoxShadow {
+  box-shadow: 0px 0px 5px #9e9e9e;
 }

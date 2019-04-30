@@ -13,6 +13,14 @@ export const INDIA_TECHNOLOGY = "Technology";
 export const BASE_API =
   "https://newsapi.org/v2/top-headlines?country=in&category="; //=business&apiKey=API_KEY"
 export const TOP_STORY = "Top stories";
+
+// Porject needed constants
+export const ICON_PNG = "-Icon.png";
+export const ICONS_ROOT_PATH = "../../Resources/";
+
+//Local Storage constants
+export const SELETECTED_NEWS_CATEGORY = "selectedNewsCategoty"
+
 // export const FORCASTING_API_KEY = "b714ec74bbab5650795063cb0fdf5fbe";
 
 /**

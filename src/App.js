@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
-import NewsList from './Views/NewsList/NewsList';
-import './bootstrap.min.css';
+import React, { Component } from "react";
+import NewsList from "./Views/NewsList/NewsList";
+import "./bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
 
 class App extends Component {
   render() {
-    return <NewsList />;
+    return (
+      <BrowserRouter>
+        <NewsList />;
+      </BrowserRouter>
+    );
   }
 }
 

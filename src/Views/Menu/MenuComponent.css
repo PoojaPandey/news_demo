@@ -1,23 +1,11 @@
-.Icon {
-  height: 50px;
-  width: 50px;
-  align-content: center;
-  margin: 5px;
-}
-.LogoTitle {
-  color: orange;
-  /* margin: 50px; */
-}
-.TableStyle {
-  border: 1px solid;
-  border-color: lightgrey;
-}
-
 .menuStyle {
-  font-size: 15pt;
-  font-weight: bold;
+  border: none;
+  width: 30%;
+  top: 10px;
 }
 
-a:hover {
-  color: rgb(247, 64, 73);
+.active {
+  background-color: rgb(7, 59, 156) !important;
+  border: none !important;
+  /* color: aqua; */
 }

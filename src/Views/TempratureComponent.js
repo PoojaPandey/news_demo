@@ -22,23 +22,23 @@ const TempratureComponent = props => {
             response => {
               setAddress(response.results[0].formatted_address);
               console.log("address", address);
-
               return <p>{address}</p>;
             },
             error => {
-              console.error(error);
+              console.error("error",error);
             }
           );
         },
         () => {}
       );
+
       return (
-        <h1>
-          location:{location.lat},{location.lng}
-        </h1>
+        <div>
+          <h1>
+            location:{location.lat},{location.lng}
+          </h1>
+        </div>
       );
-    } else {
-      return <h1>Geolocation is not supported by this browser.</h1>;
     }
   }
 
@@ -59,7 +59,6 @@ const TempratureComponent = props => {
           </tr>
         </tbody>
       </table>
-      : <div>Getting the location data&hellip; </div>;{/* </> */}
     </div>
   );
 };

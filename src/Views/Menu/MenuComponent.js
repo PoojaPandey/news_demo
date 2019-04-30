@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import '../Menu/MenuComponent.css';
-import * as constant from '../../Utility/Constant';
-import '../SingleNews/SingleNewsComponent.css';
+import React, { Component } from "react";
+import "../Menu/MenuComponent.css";
+import * as constant from "../../Utility/Constant";
+import "../SingleNews/SingleNewsComponent.css";
 
 /**
  * Menu Class to hold news category.
@@ -9,6 +9,7 @@ import '../SingleNews/SingleNewsComponent.css';
 class MenuComponent extends Component {
   state = {
     menuList: [
+      constant.TOP_STORY,
       constant.INDIA_BUSINESS,
       constant.INDIA_ENTERTAINMENT,
       constant.INDIA_HEALTH,
@@ -16,66 +17,41 @@ class MenuComponent extends Component {
       constant.INDIA_SPORTS,
       constant.INDIA_TECHNOLOGY
     ],
-    hover: false
+    hover: false,
+    selectedNewsCategoty: this.props.selected
   };
-
   /**
    * Method for selected news Type category.
    */
-  newsTypeSelected = (item) => {
+  newsTypeSelected = item => {
+    console.log("newsTypeSelected", item);
     this.props.selectNews(item);
+    this.setState({ selectedNewsCategoty: item });
+    localStorage.setItem(constant.SELETECTED_NEWS_CATEGORY, item);
   };
-
-  // onMouseOver(e) {
-  //   this.setState({
-  //     hover: true
-  //   });
-  // }
-
-  // onMouseOut(e) {
-  //   this.setState({
-  //     hover: false
-  //   });
-  // }
 
   /**
    * To render
    */
   render() {
     return (
-      <div style={{ marginLeft: '10%' }}>
-        {this.state.menuList.map((item) => {
-          return <MenuItem item={item} onClick={() => this.newsTypeSelected(item)} key={item} />;
-        })}
-       
+      <div>
+        {this.state.menuList.map(item => (
+          <ul
+            key={item}
+            className={
+              this.state.selectedNewsCategoty === item
+                ? "TitleHeaderOfHover list-group-item list-group-item-action menuStyle active"
+                : "TitleHeaderOnHover list-group-item list-group-item-action menuStyle "
+            }
+            onClick={() => this.newsTypeSelected(item)}
+          >
+            {item}
+          </ul>
+        ))}
       </div>
     );
   }
 }
 
 export default MenuComponent;
-
-class MenuItem extends React.Component {
-  state = {};
-
-  render() {
-    return (
-      <li
-        className={
-          this.state.hover
-            ? 'TitleHeaderOnHover list-group-item list-group-item-action d-flex justify-content-between align-items-center'
-            : 'TitleHeaderOfHover list-group-item list-group-item-action d-flex justify-content-between align-items-center'
-        }
-        onClick={this.props.onClick}
-        //className={this.state.hover ? 'TitleHeaderOnHover' : 'TitleHeaderOfHover'}
-        // style={this.state.hover ? { color: "red" } : { color: "black" }}
-        onMouseEnter={() => this.setState({ hover: true })}
-        onMouseLeave={() => this.setState({ hover: false })}
-        // onMouseEnter={this.onMouseOver.bind(this)}
-        // onMouseLeave={this.onMouseOut.bind(this)}
-      >
-        {this.props.item}
-      </li>
-    );
-  }
-}
